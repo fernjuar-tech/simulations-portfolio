@@ -34,8 +34,8 @@ const SAMPLE_VIDEOS = [
     duration: "00:36",
     // src: "https://files.samplescdn.com/video/thermo-redox-demo.mp4", // replace
     // thumbnail: "https://images.unsplash.com/photo-1527443154391-507e9dc6c5cc?q=80&w=1200&auto=format&fit=crop",
-    src: "/videos/movie.mpg", // replace
-    thumbnail: "/thumbs/Movie_m.png",
+    src: "videos/movie.mpg", // replace
+    thumbnail: "thumbs/Movie_m.png",
     tags: ["DFT", "MD", "Oxygen vacancies"],
     description:
       "Animated trajectory showing oxygen exchange and defect migration at elevated T; trajectories from ab initio MD mapped onto slab model.",
