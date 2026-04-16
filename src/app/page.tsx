@@ -109,7 +109,9 @@ function VideoCard({ item, onOpen }: { item: any; onOpen: (item: any) => void })
             <span className="text-xs text-muted-foreground inline-flex items-center gap-1"><Clock className="h-3 w-3" />{item.duration}</span>
           )}
           {item.date && (
-            <span className="text-xs text-muted-foreground">{new Date(item.date).toLocaleDateString()}</span>
+            <span className="text-xs text-muted-foreground">{/* hydration-safe date */}<time dateTime={item.date} suppressHydrationWarning>{item.date}</time></span>
+          //{item.date && (
+          //  <span className="text-xs text-muted-foreground">{new Date(item.date).toLocaleDateString()}</span>
           )}
         </CardContent>
       </Card>
@@ -199,7 +201,7 @@ export default function SimulationShowcase() {
   };
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
+    <div className="relative min-h-screen text-[15px] md:text-[16px] text-foreground">
       {/* Header */}
       <header className="sticky top-0 z-30 backdrop-blur bg-background/70 border-b">
         <div className="mx-auto max-w-7xl px-4 py-3 flex items-center justify-between gap-3">
@@ -214,15 +216,15 @@ export default function SimulationShowcase() {
       </header>
 
       {/* Hero */}
-      <section className="mx-auto max-w-7xl px-4 pt-10 pb-6">
+      <section className="mx-auto max-w-6xl px-4 pt-10 pb-6">
         <motion.h1
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-3xl md:text-4xl font-bold tracking-tight"
+          className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight"
         >
           Computational Simulations Portfolio
         </motion.h1>
-        <p className="mt-2 text-muted-foreground max-w-2xl">
+        <p className="mt-3 text-sm md:text-base text-muted-foreground max-w-2xl leading-relaxed">
           A curated selection of atomistic trajectories, interfacial dynamics, and microstructural processes. Use the search
           and filters to explore by topic.
         </p>
@@ -275,7 +277,7 @@ export default function SimulationShowcase() {
       </section>
 
       {/* Gallery */}
-      <main className="mx-auto max-w-7xl px-4 pb-16">
+      <main className="mx-auto max-w-6xl px-4 pb-16">
         <AnimatePresence initial={false}>
           {filtered.length === 0 ? (
             <div className="text-muted-foreground text-sm">No results. Adjust your filters.</div>
@@ -293,7 +295,7 @@ export default function SimulationShowcase() {
 
       {/* Footer */}
       <footer className="border-t">
-        <div className="mx-auto max-w-7xl px-4 py-6 text-xs text-muted-foreground flex flex-wrap items-center justify-between gap-2">
+        <div className="mx-auto max-w-6xl px-4 py-6 text-xs text-muted-foreground flex flex-wrap items-center justify-between gap-2">
           <span>© {new Date().getFullYear()} Maria Fernanda Juarez — Simulations Portfolio</span>
           <span>
             Built with React, Tailwind, shadcn/ui & Framer Motion

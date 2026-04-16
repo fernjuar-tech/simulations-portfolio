@@ -120,3 +120,260 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* src/app/globals.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paleta por defecto (puedes elegir la que más te guste) */
+:root {
+  --bg-from: #f0fdfa; /* teal-50 */
+  --bg-via:  #ecfdf5; /* emerald-50 */
+  --bg-to:   #e0f2fe; /* cyan-50 */
+}
+
+.dark {
+  --bg-from: #042f2e; /* teal-950 */
+  --bg-via:  #052e2b; /* emerald-950 */
+  --bg-to:   #083344; /* cyan-950 */
+}
+
+/* ========= Paletas alternativas opcionales ========= */
+
+/* Teal / Emerald / Cyan */
+.palette-teal {
+  --bg-from: #f0fdfa;
+  --bg-via:  #ecfdf5;
+  --bg-to:   #e0f2fe;
+}
+.dark .palette-teal {
+  --bg-from: #042f2e;
+  --bg-via:  #052e2b;
+  --bg-to:   #083344;
+}
+
+/* Cyan / Sky / Blue */
+.palette-cyan {
+  --bg-from: #ecfeff; /* cyan-50 */
+  --bg-via:  #f0f9ff; /* sky-50 */
+  --bg-to:   #eff6ff; /* blue-50 */
+}
+.dark .palette-cyan {
+  --bg-from: #083344; /* cyan-950 */
+  --bg-via:  #0b1220; /* sky-like very dark */
+  --bg-to:   #0b1020; /* blue-like very dark */
+}
+
+/* Rose / Fuchsia / Purple */
+.palette-rose {
+  --bg-from: #fff1f2; /* rose-50 */
+  --bg-via:  #fdf4ff; /* fuchsia-50 */
+  --bg-to:   #faf5ff; /* purple-50 */
+}
+.dark .palette-rose {
+  --bg-from: #4c0519; /* rose-950 */
+  --bg-via:  #4a044e; /* fuchsia-950 */
+  --bg-to:   #3b0764; /* purple-950 */
+}
+
+/* Slate / Stone / Zinc (neutral sobrio) */
+.palette-slate {
+  --bg-from: #fafaf9; /* stone-50 */
+  --bg-via:  #f8fafc; /* slate-50 */
+  --bg-to:   #fafafa; /* zinc-50 aprox */
+}
+.dark .palette-slate {
+  --bg-from: #0a0a0a; /* neutral-950 */
+  --bg-via:  #020617; /* slate-950 */
+  --bg-to:   #0c0a09; /* stone-950 aprox */
+}
+
+/* === Glows base (valores por defecto) === */
+:root {
+  --glow-a: #a7f3d0;   /* emerald-200 aprox */
+  --glow-b: #bae6fd;   /* sky-200 aprox */
+  --glow-a-opacity: 0.45;
+  --glow-b-opacity: 0.35;
+  --glow-a-size: 520px;
+  --glow-b-size: 560px;
+}
+
+.dark {
+  --glow-a: #065f46;   /* emerald-800 aprox */
+  --glow-b: #1e3a8a;   /* blue-800 aprox */
+  --glow-a-opacity: 0.45;
+  --glow-b-opacity: 0.35;
+}
+
+/* === Overrides por paleta (opcional) === */
+
+/* Teal/Emerald/Cyan */
+.palette-teal {
+  --glow-a: #99f6e4;   /* teal-200 */
+  --glow-b: #a7f3d0;   /* emerald-200 */
+}
+.dark .palette-teal {
+  --glow-a: #115e59;   /* teal-800 */
+  --glow-b: #065f46;   /* emerald-800 */
+}
+
+/* Cyan/Sky/Blue */
+.palette-cyan {
+  --glow-a: #a5f3fc;   /* cyan-200 */
+  --glow-b: #bfdbfe;   /* blue-200 */
+}
+.dark .palette-cyan {
+  --glow-a: #155e75;   /* cyan-800 */
+  --glow-b: #1e40af;   /* blue-800 */
+}
+
+/* Rose/Fuchsia/Purple */
+.palette-rose {
+  --glow-a: #fecdd3;   /* rose-200 */
+  --glow-b: #e9d5ff;   /* purple-200 */
+}
+.dark .palette-rose {
+  --glow-a: #9f1239;   /* rose-800 */
+  --glow-b: #6b21a8;   /* purple-800 */
+}
+
+/* Slate/Stone/Zinc */
+.palette-slate {
+  --glow-a: #e5e7eb;   /* gray-200 aprox */
+  --glow-b: #e7e5e4;   /* stone-200 aprox */
+}
+.dark .palette-slate {
+  --glow-a: #3f3f46;   /* zinc-700/800 aprox */
+  --glow-b: #44403c;   /* stone-700/800 aprox */
+}
+
+/* === Paletas extra === */
+
+/* 1) AMBER cálido (sin bugs porque son variables) */
+.palette-amber {
+  --bg-from: #fffbeb; /* amber-50 */
+  --bg-via:  #fff7ed; /* orange-50 */
+  --bg-to:   #fef2f2; /* rose-50 */
+  --glow-a:  #fde68a; /* amber-300 */
+  --glow-b:  #fdba74; /* orange-300 */
+}
+.dark .palette-amber {
+  --bg-from: #451a03; /* amber-950 */
+  --bg-via:  #431407; /* orange-950 */
+  --bg-to:   #4c0519; /* rose-950 */
+  --glow-a:  #92400e; /* amber-800 */
+  --glow-b:  #9a3412; /* orange-800 */
+}
+
+/* 2) INDIGO técnico */
+.palette-indigo {
+  --bg-from: #eef2ff; /* indigo-50 */
+  --bg-via:  #f0f9ff; /* sky-50 */
+  --bg-to:   #fafaf9; /* stone-50 */
+  --glow-a:  #c7d2fe; /* indigo-200 */
+  --glow-b:  #bae6fd; /* sky-200 */
+}
+.dark .palette-indigo {
+  --bg-from: #1e1b4b; /* indigo-950 */
+  --bg-via:  #020617; /* slate-950 */
+  --bg-to:   #0c0a09; /* stone-950 */
+  --glow-a:  #3730a3; /* indigo-700/800 */
+  --glow-b:  #0ea5e9; /* sky-600 aprox */
+}
+
+/* 3) OCEAN (blue/cyan/teal) */
+.palette-ocean {
+  --bg-from: #eff6ff; /* blue-50 */
+  --bg-via:  #ecfeff; /* cyan-50 */
+  --bg-to:   #f0fdfa; /* teal-50 */
+  --glow-a:  #bfdbfe; /* blue-200 */
+  --glow-b:  #a5f3fc; /* cyan-200 */
+}
+.dark .palette-ocean {
+  --bg-from: #0b1020; /* blue-950 aprox */
+  --bg-via:  #083344; /* cyan-950 */
+  --bg-to:   #042f2e; /* teal-950 */
+  --glow-a:  #1e40af; /* blue-800 */
+  --glow-b:  #155e75; /* cyan-800 */
+}
+
+/* 4) AURORA (lime/emerald/teal) */
+.palette-aurora {
+  --bg-from: #f7fee7; /* lime-50 */
+  --bg-via:  #ecfdf5; /* emerald-50 */
+  --bg-to:   #f0fdfa; /* teal-50 */
+  --glow-a:  #d9f99d; /* lime-200 */
+  --glow-b:  #a7f3d0; /* emerald-200 */
+}
+.dark .palette-aurora {
+  --bg-from: #1a2e05; /* lime-950 */
+  --bg-via:  #052e2b; /* emerald-950 */
+  --bg-to:   #042f2e; /* teal-950 */
+  --glow-a:  #3f6212; /* lime-700 */
+  --glow-b:  #065f46; /* emerald-800 */
+}
+
+/* 5) SUNSET (rose/orange/amber) */
+.palette-sunset {
+  --bg-from: #fff1f2; /* rose-50 */
+  --bg-via:  #fff7ed; /* orange-50 */
+  --bg-to:   #fffbeb; /* amber-50 */
+  --glow-a:  #fecdd3; /* rose-200 */
+  --glow-b:  #fed7aa; /* orange-200 */
+}
+.dark .palette-sunset {
+  --bg-from: #4c0519; /* rose-950 */
+  --bg-via:  #431407; /* orange-950 */
+  --bg-to:   #451a03; /* amber-950 */
+  --glow-a:  #9f1239; /* rose-800 */
+  --glow-b:  #9a3412; /* orange-800 */
+}
+
+/* 6) ORCHID (fuchsia/purple/violet) */
+.palette-orchid {
+  --bg-from: #fdf4ff; /* fuchsia-50 */
+  --bg-via:  #faf5ff; /* purple-50 */
+  --bg-to:   #f5f3ff; /* violet-50 */
+  --glow-a:  #f5d0fe; /* fuchsia-200 */
+  --glow-b:  #e9d5ff; /* purple-200 */
+}
+.dark .palette-orchid {
+  --bg-from: #4a044e; /* fuchsia-950 */
+  --bg-via:  #3b0764; /* purple-950 */
+  --bg-to:   #2e1065; /* violet-950 */
+  --glow-a:  #86198f; /* fuchsia-800 */
+  --glow-b:  #6b21a8; /* purple-800 */
+}
+
+/* 7) GRAPHITE (neutros fríos) */
+.palette-graphite {
+  --bg-from: #f8fafc; /* slate-50 */
+  --bg-via:  #fafafa; /* zinc-50 */
+  --bg-to:   #fafaf9; /* stone-50 */
+  --glow-a:  #e5e7eb; /* gray-200 aprox */
+  --glow-b:  #e7e5e4; /* stone-200 */
+}
+.dark .palette-graphite {
+  --bg-from: #020617; /* slate-950 */
+  --bg-via:  #111827; /* gray-900 aprox */
+  --bg-to:   #0a0a0a; /* neutral-950 */
+  --glow-a:  #3f3f46; /* zinc-700/800 */
+  --glow-b:  #1f2937; /* gray-800 */
+}
+
+/* 8) SAND (neutros cálidos) */
+.palette-sand {
+  --bg-from: #fffbeb; /* amber-50 */
+  --bg-via:  #fafaf9; /* stone-50 */
+  --bg-to:   #fff7ed; /* orange-50 */
+  --glow-a:  #fde68a; /* amber-300 */
+  --glow-b:  #e7e5e4; /* stone-200 */
+}
+.dark .palette-sand {
+  --bg-from: #0c0a09; /* stone-950 aprox */
+  --bg-via:  #451a03; /* amber-950 */
+  --bg-to:   #431407; /* orange-950 */
+  --glow-a:  #92400e; /* amber-800 */
+  --glow-b:  #44403c; /* stone-700/800 */
+}
