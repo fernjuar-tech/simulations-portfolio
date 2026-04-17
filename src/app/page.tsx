@@ -20,6 +20,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
 import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import Link from 'next/link'
 
 // ---------- DATA MODEL ----------
 // Replace the sample items below with your actual simulations.
@@ -289,6 +290,22 @@ export default function SimulationShowcase() {
             </motion.div>
           )}
         </AnimatePresence>
+        <div style={{ marginTop: '2rem' }}>
+          <Link
+            href="/smoothing-demo"
+            style={{
+              display: 'inline-block',
+              padding: '12px 18px',
+              borderRadius: '999px',
+              textDecoration: 'none',
+              background: '#22c55e',
+              color: '#052e16',
+              fontWeight: 700,
+            }}
+          >
+            Try the smoothing demo
+          </Link>
+        </div>
       </main>
 
       <PlayerModal open={open} onOpenChange={setOpen} item={active} />
