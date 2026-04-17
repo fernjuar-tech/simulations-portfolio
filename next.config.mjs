@@ -7,5 +7,6 @@ export default {
   // Fuerza el prefijo siempre (esto evita sorpresas con NODE_ENV)
   basePath: `/${repo}`,
   assetPrefix: `/${repo}/`,
+  trailingSlash: true,
 };
 
