@@ -210,7 +210,7 @@ function DemoChart({
   const t = texts(locale)
   
   return (
-    <div className="rounded-3xl border border-white/10 bg-white/5 p-4 shadow-2xl backdrop-blur">
+    <div className="rounded-3xl border border-cyan-200/10 bg-slate-800/45 backdrop-blur-md p-4 shadow-2xl">
       <svg viewBox={`0 0 ${width} ${height}`} className="w-full overflow-visible rounded-2xl bg-slate-950/70">
         {gridLines.map((y, i) => (
           <line key={i} x1="0" x2={width} y1={y} y2={y} stroke="rgba(255,255,255,0.09)" strokeWidth="1" />
@@ -421,42 +421,49 @@ export default function SmoothingDemo({ locale = 'en' }: { locale?: Locale }) {
   const sgErr = mse(sg, trueValues);
   
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <main className="relative min-h-screen overflow-hidden bg-gradient-to-br from-slate-900 via-sky-900 to-teal-900 text-white">
+
+    <div className="absolute inset-0 -z-10 overflow-hidden">
+      <div className="absolute top-[-8rem] left-[-6rem] h-[26rem] w-[26rem] rounded-full bg-cyan-400/12 blur-3xl" />
+      <div className="absolute top-[20%] right-[-8rem] h-[24rem] w-[24rem] rounded-full bg-teal-400/10 blur-3xl" />
+      <div className="absolute bottom-[-8rem] left-[25%] h-[22rem] w-[22rem] rounded-full bg-violet-400/10 blur-3xl" />
+    </div>
+
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
 
         <div className="mb-6 flex flex-wrap gap-3">
           <Link
             href={t.homeHref}
-            className="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200 transition hover:bg-white/15"
+            className="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-100 transition hover:bg-white/15"
           >
             {t.back}
           </Link>
 
           <Link
             href={t.langHref}
-            className="rounded-full bg-cyan-400/15 px-4 py-2 text-sm text-cyan-200 transition hover:bg-cyan-400/25"
+            className="rounded-full bg-teal-400/20 px-4 py-2 text-sm text-teal-100 transition hover:bg-teal-400/30"
           >
             {t.otherLang}
           </Link>
         </div>
 
-        <section className="mb-8 rounded-[2rem] border border-white/10 bg-white/5 p-6 shadow-2xl backdrop-blur md:p-8">
+        <section className="mb-8 rounded-[2rem] border border-cyan-200/10 bg-slate-800/45 backdrop-blur-md p-6 shadow-2xl md:p-8">
           <div className="grid gap-6 lg:grid-cols-[1.4fr_0.8fr] lg:items-start">
             <div>
-              <p className="mb-3 inline-flex rounded-full bg-cyan-400/15 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
+              <p className="mb-3 inline-flex rounded-full bg-emerald-400/20 hover:bg-emerald-400/30 px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-cyan-300">
                 {t.badge}
               </p>
-              <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">
+              <h1 className="text-4xl font-semibold text-slate-50 sm:text-4xl">
                 {t.title}
               </h1>
-              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-300">
+              <p className="mt-4 max-w-3xl text-base leading-7 text-slate-200">
                 {t.intro}
               </p>
             </div>
 
             <div className="rounded-3xl bg-slate-950/50 p-5">
-              <h2 className="text-lg font-semibold">{t.observeTitle}</h2>
-              <ul className="mt-3 space-y-3 text-sm leading-6 text-slate-300">
+              <h2 className="text-lg font-medium text-slate-100">{t.observeTitle}</h2>
+              <ul className="mt-3 space-y-3 text-sm leading-6 text-slate-200">
                 {t.observe}
               </ul>
             </div>
@@ -465,8 +472,8 @@ export default function SmoothingDemo({ locale = 'en' }: { locale?: Locale }) {
 
         <section className="grid gap-6 xl:grid-cols-[340px_minmax(0,1fr)]">
           <aside className="space-y-4">
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-xl">
-              <h2 className="text-lg font-semibold">{t.signal}</h2>
+            <div className="rounded-3xl border border-cyan-200/10 bg-slate-800/45 backdrop-blur-md p-5 shadow-xl">
+              <h2 className="text-lg font-medium text-slate-100">{t.signal}</h2>
               <div className="mt-4 grid gap-2">
                 {[
                   ['gaussian', t.signalSingle],
@@ -485,8 +492,8 @@ export default function SmoothingDemo({ locale = 'en' }: { locale?: Locale }) {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-xl">
-              <h2 className="text-lg font-semibold">{t.controls}</h2>
+            <div className="rounded-3xl border border-cyan-200/10 bg-slate-800/45 backdrop-blur-md p-5 shadow-xl">
+              <h2 className="text-lg font-medium text-slate-100">{t.controls}</h2>
               <div className="mt-4 space-y-4">
                 <Slider label={t.noise} value={noiseLevel} min={0.02} max={0.35} step={0.01} onChange={setNoiseLevel} />
                 <Slider label={t.maWindow} value={maWindow} min={3} max={41} step={2} onChange={setMaWindow} />
@@ -495,15 +502,15 @@ export default function SmoothingDemo({ locale = 'en' }: { locale?: Locale }) {
               </div>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-xl">
-              <h2 className="text-lg font-semibold">{t.display}</h2>
+            <div className="rounded-3xl border border-cyan-200/10 bg-slate-800/45 backdrop-blur-md p-5 shadow-xl">
+              <h2 className="text-lg font-medium text-slate-100">{t.display}</h2>
               <div className="mt-4 flex flex-wrap gap-2">
                 <Toggle label={t.showOriginal} checked={showTrue} onChange={setShowTrue} />
                 <Toggle label={t.showNoisy} checked={showNoisy} onChange={setShowNoisy} />
                 <button
                   type="button"
                   onClick={() => setSeed((s) => s + 1)}
-                  className="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-200 transition hover:bg-white/15"
+                  className="rounded-full bg-white/10 px-4 py-2 text-sm text-slate-100 transition hover:bg-white/15"
                 >
                   {t.newNoise}
                 </button>
@@ -515,34 +522,33 @@ export default function SmoothingDemo({ locale = 'en' }: { locale?: Locale }) {
             <DemoChart data={data} moving={moving} sg={sg} showTrue={showTrue} showNoisy={showNoisy} locale={locale} />
 
             <div className="grid gap-4 md:grid-cols-3">
-              <div className="rounded-3xl border border-amber-400/20 bg-amber-400/10 p-5">
+              <div className="rounded-3xl border border-amber-300/20 bg-amber-300/10 p-5">
                 <p className="text-sm text-amber-200">{t.maError}</p>
                 <p className="mt-2 text-3xl font-semibold text-amber-300">{maErr.toFixed(4)}</p>
                 <p className="mt-2 text-sm leading-6 text-slate-200">{t.maText}</p>
               </div>
 
-              <div className="rounded-3xl border border-green-400/20 bg-green-400/10 p-5">
+              <div className="rounded-3xl border border-green-300/20 bg-green-300/10 p-5">
                 <p className="text-sm text-green-200">{t.sgError}</p>
                 <p className="mt-2 text-3xl font-semibold text-green-300">{sgErr.toFixed(4)}</p>
                 <p className="mt-2 text-sm leading-6 text-slate-200">{t.sgText}</p>
               </div>
 
-              <div className="rounded-3xl border border-cyan-400/20 bg-cyan-400/10 p-5">
+              <div className="rounded-3xl border border-cyan-300/20 bg-cyan-300/10 p-5">
                 <p className="text-sm text-cyan-100">{t.interpretation}</p>
                 <p className="mt-2 text-base font-medium text-cyan-50">{methodComment(maErr, sgErr, locale)}</p>
                 <p className="mt-2 text-sm leading-6 text-slate-200">{t.tip}</p>
               </div>
             </div>
 
-            <div className="rounded-3xl border border-white/10 bg-white/5 p-5 shadow-xl">
-              <h2 className="text-lg font-semibold">{t.promptTitle}</h2>
-              <p className="mt-3 text-sm leading-7 text-slate-300">
+            <div className="rounded-3xl border border-cyan-200/10 bg-slate-800/45 backdrop-blur-md p-5 shadow-xl">
+              <h2 className="text-lg font-medium text-slate-100">{t.promptTitle}</h2>
+              <p className="mt-3 text-sm leading-7 text-slate-200">
                 {t.prompt}
               </p>
             </div>
           </section>
         </section>
-        {/* en el resto de la UI reemplazás los textos fijos por t.title, t.noise, etc. */}
       </div>
     </main>
   )

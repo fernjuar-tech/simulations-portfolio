@@ -7,7 +7,8 @@
     "deploy": "gh-pages -d out -b gh-pages -r https://github.com/fernjuar-tech/simulations-portfolio.git",
     "dev": "next dev",
     "build": "next build",
-    "redeploy": "npm run predeploy && npm run deploy"
+    "redeploy": "npm run predeploy && npm run deploy",
+    "redeploy-gh": "next build && next export && rm -rf ../simulations-portfolio-gh/* || true && cp -r out/* ../simulations-portfolio-gh/"
   },
   "dependencies": {
     "@radix-ui/react-dialog": "^1.1.15",
